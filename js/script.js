@@ -1,19 +1,18 @@
-// ===== CONTROLE DO JOGO =====
 let jogoAtivo = true;
 let nivel = 1;
 
-// ===== SETUP =====
 function setup() {
     createCanvas(windowWidth, windowHeight);
     frameRate(60);
+    yAtor = height - 34;
+    iniciarCarros();
 }
 
-// Ajusta tela no celular
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
+    yAtor = height - 34;
 }
 
-// ===== LOOP PRINCIPAL =====
 function draw() {
     background(imagemDaEstrada);
 
@@ -36,7 +35,6 @@ function draw() {
     controlaNivel();
 }
 
-// ===== AUDIO + RESTART =====
 function mousePressed() {
     userStartAudio();
 
@@ -50,19 +48,19 @@ function mousePressed() {
     }
 }
 
-// ===== FUNÇÕES EXTRAS =====
 function controlaNivel() {
     nivel = floor(meusPontos / 5) + 1;
 }
 
 function telaGameOver() {
-    background(0, 0, 0, 200);
+    fill(0, 180);
+    rect(0, 0, width, height);
     fill(255);
     textAlign(CENTER);
     textSize(32);
     text("GAME OVER", width / 2, height / 2 - 20);
-    textSize(20);
-    text("Toque ou clique para reiniciar", width / 2, height / 2 + 20);
+    textSize(18);
+    text("Clique ou toque para reiniciar", width / 2, height / 2 + 20);
 }
 
 function reiniciarJogo() {
