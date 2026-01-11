@@ -1,7 +1,13 @@
-let xAtor = 85;
+let xAtor;
 let yAtor;
+
 let meusPontos = 0;
-let recorde = Number(localStorage.getItem("recordeFreeway")) || 0;
+let nivel = 1;
+
+function iniciarAtor() {
+    xAtor = width / 2 - 15;
+    yAtor = height - 34;
+}
 
 function mostraAtor() {
     image(imagemDoAtor, xAtor, yAtor, 30, 30);
@@ -14,33 +20,31 @@ function movimentaAtor() {
 
 function verificaColisao() {
     for (let i = 0; i < imagemCarros.length; i++) {
-        if (collideRectCircle(xCarros[i], yCarros[i], 50, 40, xAtor, yAtor, 15)) {
+        let colidiu = collideRectCircle(
+            xCarros[i], yCarros[i], 50, 40,
+            xAtor + 15, yAtor + 15, 15
+        );
+
+        if (colidiu) {
             somDaColisao.play();
-            jogoAtivo = false;
-            salvarRecorde();
+            iniciarAtor();
         }
+    }
+}
+
+function marcaPonto() {
+    if (yAtor <= 5) {
+        meusPontos++;
+        nivel = meusPontos + 1;
+        somDoPonto.play();
+        iniciarAtor();
     }
 }
 
 function incluiPontos() {
     fill(255, 240, 60);
+    textSize(18);
     textAlign(CENTER);
-    textSize(20);
-    text(`Pontos: ${meusPontos}`, width / 2, 25);
-    text(`Recorde: ${recorde}`, width / 2, 50);
-}
-
-function marcaPonto() {
-    if (yAtor < 10) {
-        meusPontos++;
-        somDoPonto.play();
-        yAtor = height - 34;
-    }
-}
-
-function salvarRecorde() {
-    if (meusPontos > recorde) {
-        recorde = meusPontos;
-        localStorage.setItem("recordeFreeway", recorde);
-    }
+    text("Pontos: " + meusPontos, width / 2, 25);
+    text("Nível: " + nivel, width / 2, 45);
 }
