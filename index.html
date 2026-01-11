@@ -2,7 +2,6 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Baseado no Freeway</title>
     <link rel="stylesheet" href="style/style.css">
@@ -10,37 +9,30 @@
 
 <body>
 
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/p5.collide2d@0.7.3/p5.collide2d.min.js"></script>
 
+<script src="js/imagens.js"></script>
+<script src="js/ator.js"></script>
+<script src="js/carro.js"></script>
+<script src="js/script.js"></script>
 
-    <!-- Scripts do jogo -->
-    <script src="js/imagens.js"></script>
-    <script src="js/ator.js"></script>
-    <script src="js/carro.js"></script>
-    <script src="js/script.js"></script>
+<script>
+(function () {
+    const allowedDomains = [
+        "bulofkgames.blogspot.com",
+        "thebulofkproject.blogspot.com",
+        "github.io"
+    ];
 
-    <!-- Proteção contra uso fora do site -->
-    <script>
-    (function () {
-        const allowedDomains = [
-            "bulofkgames.blogspot.com",
-            "thebulofkproject.blogspot.com",
-            "github.io"
-        ];
+    const ref = document.referrer.toLowerCase();
+    if (!ref) return;
 
-        const OFFICIAL_SITE = "https://bulofkgames.blogspot.com/";
-        const ref = document.referrer.toLowerCase();
-
-        if (!ref) return;
-
-        const allowed = allowedDomains.some(domain => ref.includes(domain));
-
-        if (!allowed) {
-            window.location.replace(OFFICIAL_SITE);
-        }
-    })();
-    </script>
+    if (!allowedDomains.some(d => ref.includes(d))) {
+        window.location.replace("https://bulofkgames.blogspot.com/");
+    }
+})();
+</script>
 
 </body>
 </html>
