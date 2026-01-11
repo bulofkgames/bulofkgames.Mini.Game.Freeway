@@ -6,7 +6,7 @@ O projeto Mini-Game Freeway, é um jogo estilo Freeway desenvolvido utilizando a
 | -------------  | --- |
 | :sparkles: Nome        | **Mini-Game Freeway**
 | :label: Tecnologias | HTML, JavaScript
-| :rocket: URL         | https://carloseduardolemos.github.io/Freeway-Javascript/
+| :rocket: URL         | (https://bulofkgames.github.io/bulofkgames.Mini.Game.Freeway/)
 
 <!-- Inserir imagem com a #vitrinedev ao final do link -->
 ![](https://raw.githubusercontent.com/CarlosEduardoLemos/Freeway-Javascript/main/imagens/freeway.png#vitrinedev)
@@ -21,7 +21,7 @@ Durante o desenvolvimento deste projeto, foram aplicados conceitos de manipulaç
 
 Os próximos passos para o projeto incluem a adição de recursos adicionais, como pontuação, níveis de dificuldade, aumento da velocidade dos carros conforme o jogador progride e efeitos sonoros para aumentar a imersão no jogo.
 
-Se você é fã de jogos retrô e deseja relembrar o clássico Freeway, experimente o projeto [aqui](https://carloseduardolemos.github.io/Freeway-Javascript/) e divirta-se tentando atravessar a rua sem colidir com os carros!
+Se você é fã de jogos retrô e deseja relembrar o clássico Freeway, experimente o projeto [aqui](https://bulofkgames.github.io/bulofkgames.Mini.Game.Freeway/) e divirta-se tentando atravessar a rua sem colidir com os carros!
 
 ## Contribuição
 
