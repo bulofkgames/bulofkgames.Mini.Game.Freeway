@@ -1,5 +1,5 @@
 function setup() {
-    createCanvas(2500, 2400); // tamanho normal do game
+    createCanvas(500, 400); // tamanho normal do game
     frameRate(60);
 
     iniciarAtor();
