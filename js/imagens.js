@@ -1,9 +1,7 @@
-// Imagens
 let imagemDaEstrada;
 let imagemDoAtor;
 let imagemCarros = [];
 
-// Sons
 let somDaTrilha;
 let somDaColisao;
 let somDoPonto;
@@ -21,6 +19,7 @@ function preload() {
         loadImage("imagens/carro-3.png")
     ];
 
+    soundFormats("mp3", "wav");
     somDaTrilha = loadSound("sons/trilha.mp3");
     somDaColisao = loadSound("sons/colidiu.mp3");
     somDoPonto = loadSound("sons/pontos.wav");
