@@ -1,7 +1,9 @@
+// Imagens
 let imagemDaEstrada;
 let imagemDoAtor;
 let imagemCarros = [];
 
+// Sons
 let somDaTrilha;
 let somDaColisao;
 let somDoPonto;
