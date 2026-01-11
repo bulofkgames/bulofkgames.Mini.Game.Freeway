@@ -1,11 +1,9 @@
 let somLiberado = false;
 
 function setup() {
-    let largura = min(500, windowWidth - 20);
-    let altura = min(400, windowHeight - 20);
-    createCanvas(largura, altura);
-
+    createCanvas(500, 400); // TAMANHO FIXO DO GAME
     frameRate(60);
+
     iniciarAtor();
     iniciarCarros();
 }
@@ -24,6 +22,7 @@ function draw() {
     marcaPonto();
     incluiPontos();
 
+    // Tela para liberar o som
     if (!somLiberado) {
         fill(0, 200);
         rect(0, 0, width, height);
@@ -31,18 +30,18 @@ function draw() {
         fill(255);
         textAlign(CENTER);
         textSize(18);
-        text("TOQUE PARA INICIAR COM SOM", width / 2, height / 2);
+        text("CLIQUE OU TOQUE PARA INICIAR COM SOM", width / 2, height / 2);
 
-        noLoop(); // pausa só UMA vez
+        noLoop();
     }
 }
 
-/* FUNCIONA NO PC */
+/* PC */
 function mousePressed() {
     iniciarSom();
 }
 
-/* FUNCIONA NO CELULAR */
+/* CELULAR */
 function touchStarted() {
     iniciarSom();
     return false;
@@ -56,10 +55,4 @@ function iniciarSom() {
         somLiberado = true;
         loop();
     }
-}
-
-function windowResized() {
-    let largura = min(500, windowWidth - 20);
-    let altura = min(400, windowHeight - 20);
-    resizeCanvas(largura, altura);
 }
