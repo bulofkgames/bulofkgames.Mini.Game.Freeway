@@ -1,7 +1,12 @@
-let xCarros = [600, 600, 600, 600, 600, 600];
+let xCarros = [];
 let yCarros = [40, 96, 150, 210, 270, 318];
-
 let velocidadeBase = [2, 3, 2.5, 3.5, 2.8, 3.2];
+
+function iniciarCarros() {
+    for (let i = 0; i < 6; i++) {
+        xCarros[i] = width + i * 120;
+    }
+}
 
 function mostraCarro() {
     for (let i = 0; i < imagemCarros.length; i++) {
@@ -18,13 +23,7 @@ function movimentaCarro() {
 function voltaPosicaoInicialCarro() {
     for (let i = 0; i < imagemCarros.length; i++) {
         if (xCarros[i] < -50) {
-            xCarros[i] = width + random(50, 300);
+            xCarros[i] = width + random(100, 300);
         }
-    }
-}
-
-function iniciarCarros() {
-    for (let i = 0; i < xCarros.length; i++) {
-        xCarros[i] = width + i * 120;
     }
 }
