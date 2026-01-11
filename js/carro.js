@@ -6,8 +6,6 @@ function iniciarCarros() {
     xCarros = Array(6).fill(width);
 }
 
-iniciarCarros();
-
 function mostraCarro() {
     for (let i = 0; i < imagemCarros.length; i++) {
         image(imagemCarros[i], xCarros[i], yCarros[i], 50, 40);
