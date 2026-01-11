@@ -4,41 +4,50 @@ let yAtor;
 let meusPontos = 0;
 let nivel = 1;
 
+// Inicializa posição do jogador
 function iniciarAtor() {
     xAtor = width / 2 - 15;
     yAtor = height - 34;
 }
 
+// Desenha o ator
 function mostraAtor() {
     image(imagemDoAtor, xAtor, yAtor, 30, 30);
 }
 
+// Movimento do ator
 function movimentaAtor() {
     if (keyIsDown(UP_ARROW)) yAtor -= 3;
     if (keyIsDown(DOWN_ARROW) && yAtor < height - 34) yAtor += 3;
 }
 
+// Verifica colisão com carros
 function verificaColisao() {
     for (let i = 0; i < imagemCarros.length; i++) {
-        if (collideRectCircle(
+        let colidiu = collideRectCircle(
             xCarros[i], yCarros[i], 50, 40,
             xAtor + 15, yAtor + 15, 15
-        )) {
-            somDaColisao.play();
+        );
+
+        if (colidiu) {
+            if (somDaColisao) somDaColisao.play();
             iniciarAtor();
         }
     }
 }
 
+// Marca ponto ao chegar do outro lado
 function marcaPonto() {
     if (yAtor <= 5) {
         meusPontos++;
         nivel = meusPontos + 1;
-        somDoPonto.play();
+
+        if (somDoPonto) somDoPonto.play();
         iniciarAtor();
     }
 }
 
+// Mostra pontos e nível
 function incluiPontos() {
     fill(255, 240, 60);
     textAlign(CENTER);
