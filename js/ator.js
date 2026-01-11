@@ -1,7 +1,7 @@
 let xAtor = 85;
-let yAtor = 366;
+let yAtor;
 let meusPontos = 0;
-let recorde = localStorage.getItem("recordeFreeway") || 0;
+let recorde = Number(localStorage.getItem("recordeFreeway")) || 0;
 
 function mostraAtor() {
     image(imagemDoAtor, xAtor, yAtor, 30, 30);
@@ -25,8 +25,9 @@ function verificaColisao() {
 function incluiPontos() {
     fill(255, 240, 60);
     textAlign(CENTER);
-    text(`Pontos: ${meusPontos}`, width / 2, 30);
-    text(`Recorde: ${recorde}`, width / 2, 60);
+    textSize(20);
+    text(`Pontos: ${meusPontos}`, width / 2, 25);
+    text(`Recorde: ${recorde}`, width / 2, 50);
 }
 
 function marcaPonto() {
