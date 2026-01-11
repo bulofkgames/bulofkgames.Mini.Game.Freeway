@@ -1,11 +1,6 @@
 let somLiberado = false;
 
-function setup() {
-    frameRate(60);
 
-    iniciarAtor();
-    iniciarCarros();
-}
 
 function draw() {
     background(imagemDaEstrada);
