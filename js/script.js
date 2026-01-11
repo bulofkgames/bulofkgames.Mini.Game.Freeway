@@ -29,3 +29,19 @@ function draw() {
     marcaPonto();
     incluiPontos();
 }
+
+/* Libera som quando o usuário interagir (PC e celular) */
+function keyPressed() {
+    if (somDaTrilha && !somDaTrilha.isPlaying()) {
+        userStartAudio();
+        somDaTrilha.loop();
+    }
+}
+
+function touchStarted() {
+    if (somDaTrilha && !somDaTrilha.isPlaying()) {
+        userStartAudio();
+        somDaTrilha.loop();
+    }
+    return false;
+}
