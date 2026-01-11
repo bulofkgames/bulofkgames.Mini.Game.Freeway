@@ -31,6 +31,8 @@ function verificaColisao() {
 
         if (colidiu) {
             if (somDaColisao) somDaColisao.play();
+
+            // NÃO zera pontos — apenas reinicia posição
             iniciarAtor();
         }
     }
