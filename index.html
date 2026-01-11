@@ -18,5 +18,26 @@
 <script src="js/ator.js"></script>
 <script src="js/script.js"></script>
 
+<script>
+  (function () {
+    const allowedDomains = [
+      "bulofkgames.blogspot.com",
+      "thebulofkproject.blogspot.com",
+      "github.io"
+    ];
+
+    const OFFICIAL_SITE = "https://bulofkgames.blogspot.com/";
+    const ref = document.referrer.toLowerCase();
+
+    if (!ref) return;
+
+    const allowed = allowedDomains.some(domain => ref.includes(domain));
+
+    if (!allowed) {
+      window.location.replace(OFFICIAL_SITE);
+    }
+  })();
+  </script>
+
 </body>
 </html>
