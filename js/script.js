@@ -1,11 +1,11 @@
 function setup() {
-    createCanvas(2500, 2400);
+    createCanvas(2500, 2400); // tamanho normal do game
     frameRate(60);
 
     iniciarAtor();
     iniciarCarros();
 
-    // Tenta iniciar o som automaticamente
+    // tenta tocar a trilha automaticamente
     if (somDaTrilha) {
         somDaTrilha.setVolume(0.4);
         somDaTrilha.loop();
