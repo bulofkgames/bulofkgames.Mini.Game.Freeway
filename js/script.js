@@ -1,9 +1,11 @@
 let somLiberado = false;
 
 function setup() {
-    createCanvas(500, 400);
-    frameRate(60);
+    let largura = min(500, windowWidth - 20);
+    let altura = min(400, windowHeight - 20);
+    createCanvas(largura, altura);
 
+    frameRate(60);
     iniciarAtor();
     iniciarCarros();
 }
@@ -22,7 +24,6 @@ function draw() {
     marcaPonto();
     incluiPontos();
 
-    // Tela de desbloqueio de som
     if (!somLiberado) {
         fill(0, 200);
         rect(0, 0, width, height);
@@ -32,16 +33,33 @@ function draw() {
         textSize(18);
         text("TOQUE PARA INICIAR COM SOM", width / 2, height / 2);
 
-        noLoop(); // pausa o jogo até tocar
+        noLoop(); // pausa só UMA vez
     }
 }
 
+/* FUNCIONA NO PC */
 function mousePressed() {
+    iniciarSom();
+}
+
+/* FUNCIONA NO CELULAR */
+function touchStarted() {
+    iniciarSom();
+    return false;
+}
+
+function iniciarSom() {
     if (!somLiberado) {
-        userStartAudio();      // ✅ AGORA no lugar certo
+        userStartAudio();
         somDaTrilha.setVolume(0.4);
         somDaTrilha.loop();
         somLiberado = true;
-        loop();                // retoma o jogo
+        loop();
     }
+}
+
+function windowResized() {
+    let largura = min(500, windowWidth - 20);
+    let altura = min(400, windowHeight - 20);
+    resizeCanvas(largura, altura);
 }
