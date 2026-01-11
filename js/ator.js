@@ -20,12 +20,10 @@ function movimentaAtor() {
 
 function verificaColisao() {
     for (let i = 0; i < imagemCarros.length; i++) {
-        let colidiu = collideRectCircle(
+        if (collideRectCircle(
             xCarros[i], yCarros[i], 50, 40,
             xAtor + 15, yAtor + 15, 15
-        );
-
-        if (colidiu) {
+        )) {
             somDaColisao.play();
             iniciarAtor();
         }
@@ -43,8 +41,8 @@ function marcaPonto() {
 
 function incluiPontos() {
     fill(255, 240, 60);
-    textSize(18);
     textAlign(CENTER);
+    textSize(18);
     text("Pontos: " + meusPontos, width / 2, 25);
     text("Nível: " + nivel, width / 2, 45);
 }
