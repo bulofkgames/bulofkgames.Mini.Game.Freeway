@@ -1,6 +1,14 @@
 let somLiberado = false;
 
+function setup() {
+    createCanvas(500, 400); // TAMANHO FIXO — o site controla o resto
+    frameRate(60);
 
+    iniciarAtor();
+    iniciarCarros();
+
+    noLoop(); // começa pausado até clicar
+}
 
 function draw() {
     background(imagemDaEstrada);
@@ -16,7 +24,7 @@ function draw() {
     marcaPonto();
     incluiPontos();
 
-    // Tela para liberar o som
+    // Tela de liberação do som
     if (!somLiberado) {
         fill(0, 200);
         rect(0, 0, width, height);
@@ -24,18 +32,16 @@ function draw() {
         fill(255);
         textAlign(CENTER);
         textSize(18);
-        text("CLIQUE OU TOQUE PARA INICIAR COM SOM", width / 2, height / 2);
-
-        noLoop();
+        text("CLIQUE OU TOQUE NA TELA DO GAME", width / 2, height / 2);
     }
 }
 
-/* PC */
+/* CLIQUE (PC) */
 function mousePressed() {
     iniciarSom();
 }
 
-/* CELULAR */
+/* TOQUE (CELULAR) */
 function touchStarted() {
     iniciarSom();
     return false;
@@ -43,10 +49,11 @@ function touchStarted() {
 
 function iniciarSom() {
     if (!somLiberado) {
-        userStartAudio();
+        userStartAudio(); // obrigatório para celular
         somDaTrilha.setVolume(0.4);
         somDaTrilha.loop();
+
         somLiberado = true;
-        loop();
+        loop(); // inicia o jogo
     }
 }
