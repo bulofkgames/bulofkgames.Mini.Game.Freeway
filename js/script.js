@@ -1,7 +1,6 @@
 let somLiberado = false;
 
 function setup() {
-    createCanvas(500, 400); // TAMANHO FIXO DO GAME
     frameRate(60);
 
     iniciarAtor();
