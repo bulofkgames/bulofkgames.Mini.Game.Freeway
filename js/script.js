@@ -63,30 +63,22 @@ function draw() {
 }
 
 function keyPressed() {
-    // 1. Liberação de Áudio
     if (getAudioContext().state !== 'running') {
         userStartAudio();
     }
-    if (somDaTrilha && !somDaTrilha.isPlaying()) {
-        somDaTrilha.loop();
-    }
-
-    // 2. Movimentação (WASD + Setas)
-    // CIMA (W ou Seta Cima)
-    if (keyCode === UP_ARROW || key === 'w' || key === 'W') yAtor -= 15;
-    // BAIXO (S ou Seta Baixo)
-    if (keyCode === DOWN_ARROW || key === 's' || key === 'S') yAtor += 15;
-    // ESQUERDA (A ou Seta Esquerda)
-    if (keyCode === LEFT_ARROW || key === 'a' || key === 'A') xAtor -= 15;
-    // DIREITA (D ou Seta Direita)
-    if (keyCode === RIGHT_ARROW || key === 'd' || key === 'D') xAtor += 15;
     
-    // Limites de tela
+    // Movimentação robusta (usando .toLowerCase para pegar 'w' e 'W')
+    let k = key.toLowerCase();
+    
+    if (keyCode === UP_ARROW || k === 'w') yAtor -= 15;
+    if (keyCode === DOWN_ARROW || k === 's') yAtor += 15;
+    if (keyCode === LEFT_ARROW || k === 'a') xAtor -= 15;
+    if (keyCode === RIGHT_ARROW || k === 'd') xAtor += 15;
+    
     xAtor = constrain(xAtor, 0, 470);
     yAtor = constrain(yAtor, 0, 370);
 
-    // 3. Trava a página: impede que o navegador role ao usar as setas
-    return false; 
+    return false; // Trava a rolagem da página
 }
 
 function touchStarted() {
