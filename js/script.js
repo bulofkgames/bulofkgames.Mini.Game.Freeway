@@ -1,8 +1,16 @@
 function setup() {
-    createCanvas(500, 400);
+    let meuCanvas = createCanvas(500, 400); 
     frameRate(60);
+    
+    [
+    meuCanvas.elt.setAttribute('tabindex', '0');
+    meuCanvas.elt.addEventListener('click', () => {
+        meuCanvas.elt.focus();
+    });
+
     iniciarAtor();
     iniciarCarros();
+
     if (somDaTrilha) {
         somDaTrilha.setVolume(0.4);
         somDaTrilha.loop();
