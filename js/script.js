@@ -45,3 +45,19 @@ function touchStarted() {
     }
     return false;
 }
+function keyPressed() {
+  // Captura setas ou WASD
+  if (keyCode === UP_ARROW || key === 'w' || key === 'W') {
+    ator.y -= 10; // Ajuste o valor conforme sua necessidade
+  }
+  if (keyCode === DOWN_ARROW || key === 's' || key === 'S') {
+    ator.y += 10;
+  }
+  // Se o seu jogo precisar de movimento lateral (A/D ou setas esquerda/direita)
+  if (keyCode === LEFT_ARROW || key === 'a' || key === 'A') {
+    ator.x -= 10;
+  }
+  if (keyCode === RIGHT_ARROW || key === 'd' || key === 'D') {
+    ator.x += 10;
+  }
+}
